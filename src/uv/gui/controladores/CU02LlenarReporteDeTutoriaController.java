@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import uv.fei.tutorias.bussinesslogic.PeriodoDAO;
@@ -51,9 +53,10 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
     Alertas alertas = new Alertas();
     Usuario usuarioActivo;
     ProgramaEducativo programaEducativoActivo;
+    SesionTutoria sesionTutoriaActiva = new SesionTutoria();
     final static Logger log = Logger.getLogger(CU02LlenarReporteDeTutoriaController.class);
 
-    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo) throws SQLException {
+    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo) {
         usuarioActivo = usuario;
         programaEducativoActivo = programaEducativo;
         establecerPeriodoFechasTutoria();
@@ -67,36 +70,34 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
             txtPeriodo.setText(periodo.toString());
             obtenerTutoriaActiva(periodo);
         } catch (SQLException exception) {
+            alertas.mostrarAlertaErrorConexionDB();
             log.fatal(exception);
         }
     }
 
-    private String obtenerFechaActual(){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String fechaActual = String.valueOf(dateTimeFormatter);
-        return fechaActual;
-    }
-
     private void obtenerTutoriaActiva(Periodo periodo) {
-        SesionTutoria sesionTutoriaActiva = new SesionTutoria();
         SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
         ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(periodo.getIdPeriodo());
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println(" ");
-        Date fechaActual = null;
+        LocalDate fecha = LocalDate.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String stringFecha = fecha.format(myFormatObj);
         try {
-            if (!sesionesTutorias.isEmpty()) {
+            Date fechaActual = dateFormat.parse(stringFecha);
+            if (!sesionesTutorias.isEmpty()){
                 for (SesionTutoria sesionTutoriaCiclo : sesionesTutorias) {
-                    Date fechaTutoriaInicio = dateFormat.parse(sesionTutoriaCiclo.getFechaTutoria());
-                    Date fechaTutoriaCierre = dateFormat.parse(sesionTutoriaCiclo.getFechaCierreReportes());
-                    if (fechaActual.equals(fechaTutoriaInicio)) {
+                    String fechaInicioTutoria = sesionTutoriaCiclo.getFechaTutoria();
+                    String fechaFinTutoria = sesionTutoriaCiclo.getFechaCierreReportes();
+                    Date fechaTutoriaInicio = dateFormat.parse(fechaInicioTutoria);
+                    Date fechaTutoriaCierre = dateFormat.parse(fechaFinTutoria);
+                    if (fechaActual.equals(fechaInicioTutoria)) {
                         sesionTutoriaActiva = sesionTutoriaCiclo;
+                        System.out.println(sesionTutoriaActiva.getIdSesionTutoria());
                     } else if (fechaActual.after(fechaTutoriaInicio) && fechaActual.before(fechaTutoriaCierre)) {
                         sesionTutoriaActiva = sesionTutoriaCiclo;
                     }
                 }
-            } else {
+            }else{
                 alertas.mostrarAlertaNoHayFechasDeTutoriaRegistradas();
             }
         } catch (ParseException exception) {
@@ -105,9 +106,16 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
         mostrarFechasDeTutoria(sesionTutoriaActiva);
     }
 
-
     private void mostrarFechasDeTutoria(SesionTutoria sesionTutoria){
-            txtTutoria.setText(sesionTutoria.toString());
+        txtTutoria.setText(sesionTutoria.toString());
+        llenarTablaTutorados();
+    }
+
+    private void llenarTablaTutorados(){
+        colAsistencia.setCellValueFactory(new PropertyValueFactory<Tutorado, String>("matricula"));
+        colNombre.setCellValueFactory(new PropertyValueFactory <Tutorado, String>("nombreCompleto"));
+        colRiesgo.setCellValueFactory(new PropertyValueFactory <Tutorado, String>("apellidoPaterno"));
+
     }
 
     @Override

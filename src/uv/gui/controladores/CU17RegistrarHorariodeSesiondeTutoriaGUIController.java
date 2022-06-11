@@ -82,7 +82,7 @@ public class CU17RegistrarHorariodeSesiondeTutoriaGUIController implements Initi
         PeriodoDAO periodoDAO = new PeriodoDAO();
         try {
             periodo = periodoDAO.consultarPeriodoActivo();
-            lblPeriodo.setText(periodo.getPeriodoCompleto());
+            lblPeriodo.setText(periodo.toString());
             mostrarFechasDeTutoria(periodo);
         } catch (SQLException exception) {
             log.fatal(exception);
