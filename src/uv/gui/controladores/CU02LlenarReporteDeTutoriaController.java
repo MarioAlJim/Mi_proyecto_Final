@@ -83,6 +83,7 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
         ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(periodo.getIdPeriodo());
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        System.out.println(" ");
         Date fechaActual = null;
         try {
             if (!sesionesTutorias.isEmpty()) {
