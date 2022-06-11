@@ -1,0 +1,311 @@
+2022-04-17 19:53:35 ERROR HorarioDAO:81 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-04-17 19:55:00 FATAL HorarioDAO:81 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-04 22:37:06 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:38:38 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:39:09 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:39:49 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:39:59 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:41:49 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:55:21 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:56:39 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 22:59:48 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 23:01:37 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-04 23:01:48 FATAL OfertaAcademicaDAO:50 - java.sql.SQLException: Column 'Experiencia' not found.
+2022-05-06 00:28:53 FATAL TutorDAO:50 - java.sql.SQLException: Column 'Paterno' not found.
+2022-05-06 01:03:09 FATAL TutoradoDAO:128 - java.sql.SQLException: No se encontraron tutorados
+2022-05-06 01:06:00 FATAL TutoradoDAO:129 - java.sql.SQLException: No se encontraron tutorados
+2022-05-06 01:09:14 FATAL TutoradoDAO:129 - java.sql.SQLException: No se encontraron tutorados
+2022-05-06 01:15:36 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-06 01:18:34 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-06 01:21:12 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-06 01:21:42 FATAL TutoradoDAO:126 - java.sql.SQLException: Parameter index out of range (0 < 1 ).
+<<<<<<< HEAD
+2022-05-06 14:02:15 FATAL TutorDAO:50 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-13 16:57:50 FATAL TutorDAO:51 - java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost/sistematutoriasfei
+=======
+2022-05-06 14:19:15 FATAL TutorDAO:50 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-06 17:46:50 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 's2938' for key 'PRIMARY'
+2022-05-06 17:53:12 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 's2938' for key 'PRIMARY'
+2022-05-06 18:18:36 ERROR TutorDAO:40 - com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'contrasena' at row 1
+2022-05-06 18:18:37 FATAL TutorDAO:81 - java.sql.SQLException: No se encontraron cuentasUV
+2022-05-06 18:19:33 ERROR TutorDAO:40 - com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'contrasena' at row 1
+2022-05-06 18:19:33 FATAL TutorDAO:81 - java.sql.SQLException: No se encontraron cuentasUV
+2022-05-06 18:20:33 FATAL TutorDAO:81 - java.sql.SQLException: No se encontraron cuentasUV
+2022-05-07 21:47:58 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:47:59 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:47:59 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:48:00 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:48:01 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:49:48 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:50:11 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 21:51:21 FATAL TutorDAO:81 - java.sql.SQLException: No se encontraron cuentasUV
+2022-05-07 22:01:54 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 's2938' for key 'PRIMARY'
+2022-05-07 22:37:11 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'Nombre' cannot be null
+2022-05-07 22:37:16 FATAL TutorDAO:81 - java.sql.SQLException: No se encontraron cuentasUV
+2022-05-07 22:39:28 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-07 22:39:28 FATAL TutorDAO:81 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-07 22:42:39 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 22:45:58 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 22:48:34 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 22:49:32 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 22:50:43 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 23:02:13 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 23:05:46 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'ApellidoMaterno' cannot be null
+2022-05-07 23:07:10 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'ajf' for key 'PRIMARY'
+2022-05-07 23:07:11 FATAL TutorDAO:81 - java.sql.SQLException: No se encontraron cuentasUV
+2022-05-08 13:11:00 ERROR TutorDAO:40 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'Correo' cannot be null
+>>>>>>> 85199db5f4650e617c67c1bad9cfa08f58301a63
+2022-05-16 19:16:38 FATAL OfertaAcademicaDAO:96 - java.sql.SQLException: No se encontraron datos
+2022-05-16 19:16:40 FATAL OfertaAcademicaDAO:96 - java.sql.SQLException: No se encontraron datos
+2022-05-16 19:37:28 FATAL SesionTutoriaDAO:40 - java.sql.SQLException: No se encontraron datos
+2022-05-17 18:51:49 FATAL SesionTutoriaDAO:40 - java.sql.SQLException: No se encontraron datos
+2022-05-18 17:24:20 FATAL SesionTutoriaDAO:38 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-18 17:24:31 FATAL SesionTutoriaDAO:38 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-18 17:24:35 FATAL SesionTutoriaDAO:38 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-18 17:24:37 FATAL SesionTutoriaDAO:38 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-18 17:33:03 FATAL SesionTutoriaDAO:38 - com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2022-05-20 00:29:50 FATAL OfertaAcademicaDAO:52 - java.sql.SQLException: No se encontraron datos
+2022-05-20 00:29:54 FATAL OfertaAcademicaDAO:96 - java.sql.SQLException: No se encontraron datos
+2022-05-20 00:29:56 FATAL OfertaAcademicaDAO:96 - java.sql.SQLException: No se encontraron datos
+2022-05-20 02:38:55 FATAL HorarioDAO:84 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 02:39:10 FATAL HorarioDAO:84 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 02:54:14 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 02:54:29 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 02:56:29 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 15:58:26 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 15:58:34 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 15:58:38 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 16:01:09 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 16:01:26 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 17:35:12 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 17:36:19 FATAL HorarioDAO:86 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:04:46 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:05:30 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:16:16 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:22:40 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:23:52 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:44:03 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:45:50 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:47:38 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:47:55 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:48:50 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:50:05 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:51:28 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-20 18:51:38 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-21 14:50:47 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-21 14:51:21 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:13:10 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:13:14 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:13:19 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:13:28 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:13:40 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:16:53 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:49:28 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:49:38 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:53:17 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:06 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:54:12 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:54:12 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:15 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:54:15 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:21 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:23 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:54:24 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:27 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:36 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:54:36 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:54:39 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:54:40 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:56:10 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:56:20 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:56:20 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:56:21 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:58:30 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:58:34 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:58:34 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:58:42 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:58:43 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:58:46 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:58:49 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 13:58:50 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 13:58:53 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:08:52 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:09:03 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:09:03 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:09:43 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:09:47 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:09:47 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:09:50 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:11:07 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:11:07 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:11:13 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:11:13 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:11:16 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:11:21 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:11:22 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:11:26 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:14:16 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:14:19 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:14:19 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:17:41 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:18:01 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:18:02 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:18:13 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:19:22 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:19:36 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:19:37 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:21:10 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:21:17 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:22:19 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:22:19 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:22:22 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:23:47 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:24:02 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-22 14:24:02 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-22 14:55:47 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-22 14:55:53 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-22 14:55:55 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-22 15:02:23 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-22 15:02:27 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-22 15:02:29 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-22 15:12:20 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-22 15:12:22 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-22 15:12:25 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-22 18:13:21 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-23 01:38:19 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-23 01:38:23 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-23 01:38:25 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-23 01:49:05 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-23 01:49:15 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-23 01:49:20 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-23 02:04:10 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-23 02:04:25 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-23 02:04:35 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-23 02:04:37 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-23 02:04:39 FATAL TutoradoDAO:126 - java.sql.SQLException: No se encontraron tutorados
+2022-05-23 17:36:06 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-23 17:36:14 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-23 17:36:16 FATAL DocenteEEProgramasDAO:118 - java.sql.SQLException: No se encontraron datos
+2022-05-23 17:37:04 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-23 17:37:35 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-23 17:37:41 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-26 01:08:10 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-26 01:11:46 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-26 01:15:35 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-05-26 01:23:48 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-26 01:32:18 FATAL HorarioDAO:87 - java.sql.SQLException: No se encontraron horarios
+2022-05-26 01:41:13 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-26 02:09:08 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-26 02:09:37 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:20:37 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:20:40 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:21:13 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:21:15 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:53:35 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:53:37 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:55:52 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:55:54 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:57:55 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:57:57 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:59:48 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 14:59:50 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:00:43 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:00:45 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:02:50 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:02:52 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:05:34 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:05:36 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:07:14 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 15:07:15 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 16:39:39 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 17:07:30 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-05-30 17:17:21 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-04 13:56:57 FATAL DocenteEEProgramasDAO:119 - java.sql.SQLException: No se encontraron datos
+2022-06-04 13:57:02 FATAL DocenteEEProgramasDAO:119 - java.sql.SQLException: No se encontraron datos
+2022-06-04 13:58:07 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-04 13:58:54 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-06 17:39:21 FATAL HorarioDAO:128 - java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 2).
+2022-06-06 17:40:07 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-06 17:40:46 FATAL HorarioDAO:128 - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE IdHorario = 1' at line 1
+2022-06-06 17:41:56 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-06 17:44:32 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-06 17:45:09 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-06 23:15:49 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-06 23:15:58 ERROR HorarioDAO:111 - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`sistematutoriasfei`.`horario`, CONSTRAINT `IdTutoria` FOREIGN KEY (`IdTutoria`) REFERENCES `tutorias` (`IdTutoria`) ON DELETE CASCADE ON UPDATE CASCADE)
+2022-06-06 23:24:49 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 00:28:02 FATAL HorarioDAO:130 - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 22 AND NumPersonal = 3456' at line 1
+2022-06-09 00:33:42 FATAL HorarioDAO:130 - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= 12 AND NumPersonal = 3434' at line 1
+2022-06-09 11:18:38 FATAL DocenteEEProgramasDAO:119 - java.sql.SQLException: No se encontraron datos
+2022-06-09 11:18:58 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:21:13 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:21:14 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:21:17 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:21:17 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:21:20 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:21:21 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:22:09 FATAL TutorDAO:172 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:22:15 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:22:16 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:22:19 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:22:20 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:22:58 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:22:59 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-09 11:23:03 FATAL TutorDAO:93 - java.sql.SQLException: No se encontraron sesiones de tutorias registradas
+2022-06-09 11:23:03 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 00:08:14 FATAL CU06ConsultarProblematicasAcademicasController:95 - java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+2022-06-10 00:08:20 FATAL CU06ConsultarProblematicasAcademicasController:95 - java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+2022-06-10 00:10:50 FATAL CU06ConsultarProblematicasAcademicasController:138 - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown table 'p'
+2022-06-10 00:18:19 FATAL CU06ConsultarProblematicasAcademicasController:138 - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown table 'p'
+2022-06-10 01:46:47 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 01:46:50 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 01:46:53 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 01:47:22 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 01:50:56 FATAL HorarioDAO:89 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:13:30 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:15:38 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:15:41 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:15:44 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:15:46 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:16:35 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:17:00 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:30:13 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:30:16 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:30:21 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:32:40 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:33:19 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:55:59 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 02:58:46 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 03:00:44 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 03:02:29 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 03:05:42 FATAL HorarioDAO:90 - java.sql.SQLException: No se encontraron horarios
+2022-06-10 04:00:05 FATAL DocenteEEProgramasDAO:119 - java.sql.SQLException: No se encontraron datos
+2022-06-10 15:15:34 FATAL CU02LlenarReporteDeTutoriaController:76 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:20:56 FATAL CU02LlenarReporteDeTutoriaController:108 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:27:20 FATAL CU02LlenarReporteDeTutoriaController:108 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:28:38 FATAL CU02LlenarReporteDeTutoriaController:108 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:29:21 FATAL CU02LlenarReporteDeTutoriaController:108 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:30:35 FATAL CU02LlenarReporteDeTutoriaController:109 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:31:19 FATAL CU02LlenarReporteDeTutoriaController:109 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
+2022-06-10 15:32:53 FATAL CU02LlenarReporteDeTutoriaController:110 - java.text.ParseException: Unparseable date: "Value(DayOfMonth,2)'-'Value(MonthOfYear,2)'-'Value(YearOfEra,4,19,EXCEEDS_PAD)"
