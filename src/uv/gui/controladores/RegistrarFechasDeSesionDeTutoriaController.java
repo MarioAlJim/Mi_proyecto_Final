@@ -59,8 +59,6 @@ public class RegistrarFechasDeSesionDeTutoriaController {
         registrarSesion(dpPrimeraSesion);
         registrarSesion(dpSegundaSesion);
         registrarSesion(dpTerceraSesion);
-            
-        JOptionPane.showMessageDialog(null, "Fecha registrada");
     }
     
     public void registrarSesion(DatePicker fechaTutoria){

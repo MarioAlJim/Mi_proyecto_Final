@@ -1,10 +1,11 @@
-package uv.gui.controladores;
+/*package uv.gui.controladores;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +18,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.apache.log4j.Logger;
 import uv.fei.tutorias.bussinesslogic.HorarioDAO;
 import uv.fei.tutorias.domain.Usuario;
 import uv.fei.tutorias.bussinesslogic.UsuarioDAO;
-import uv.fei.tutorias.dataaccess.DataBaseConnection;
 import uv.mensajes.Alertas;
 
 public class InicioSesionGUIController implements Initializable {
@@ -130,3 +129,4 @@ public class InicioSesionGUIController implements Initializable {
     }
     
 }
+*/
