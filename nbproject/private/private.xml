@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/controladores/MenuCoordinadorGUIController.java</file>
             <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/controladores/MenuTutorGUIController.java</file>
             <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/controladores/CU06ConsultarProblematicasAcademicasController.java</file>
+            <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/interfaces/MenuCoordinadorGUI.fxml</file>
+            <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/controladores/MenuJefedeCarreraController.java</file>
             <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/controladores/CU02LlenarReporteDeTutoriaController.java</file>
+            <file>file:/C:/Users/SILVERWOLF/Downloads/ProyectoFinal-PCS/src/uv/gui/interfaces/MenuJefedeCarrera.fxml</file>
         </group>
     </open-files>
 </project-private>
