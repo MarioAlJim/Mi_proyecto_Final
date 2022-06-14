@@ -138,10 +138,10 @@ public class SesionTutoriaDAO implements ISesionTutoriaDAO {
     }
 
     @Override
-    public ArrayList<SesionTutoria> consultarTutoriaPorPeriodo(int idPeriodo) {
+    public ArrayList<SesionTutoria> consultarTutoriaPorPeriodo(int idPeriodo) throws SQLException{
         ArrayList<SesionTutoria> sesiones= new ArrayList<>();
         DataBaseConnection dataBaseConnection = new DataBaseConnection();
-        try(Connection connection=dataBaseConnection.getConnection()){
+        Connection connection=dataBaseConnection.getConnection();
             String query="SELECT * FROM tutorias WHERE IdPeriodo = ?";
             PreparedStatement statement=connection.prepareStatement(query);
             statement.setInt(1, idPeriodo);
@@ -164,9 +164,6 @@ public class SesionTutoriaDAO implements ISesionTutoriaDAO {
                     sesiones.add(sesionTutoria);
                 }while (resultSet.next());
             }
-        }catch (SQLException ex) {
-            log.fatal(ex);
-        }
         return sesiones;
     }
     

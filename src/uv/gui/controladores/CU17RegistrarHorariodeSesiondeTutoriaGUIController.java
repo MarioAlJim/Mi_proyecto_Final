@@ -89,7 +89,7 @@ public class CU17RegistrarHorariodeSesiondeTutoriaGUIController implements Initi
         }
     }
 
-    private void mostrarFechasDeTutoria(Periodo periodo){
+    private void mostrarFechasDeTutoria(Periodo periodo) throws SQLException{
         ObservableList<SesionTutoria> opcionesCombo = FXCollections.observableArrayList();
         SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
         ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(periodo.getIdPeriodo());
@@ -98,7 +98,7 @@ public class CU17RegistrarHorariodeSesiondeTutoriaGUIController implements Initi
                 opcionesCombo.add(sesionTutoriaciclo);
             }
             cbbFechaTutoria.setItems(opcionesCombo);
-        }else{
+        } else {
             alertas.mostrarAlertaNoHayFechasDeTutoriaRegistradas();
         }
         cbbFechaTutoria.valueProperty().addListener((ov, valorAntiguo, valorNuevo) -> {

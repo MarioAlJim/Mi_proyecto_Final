@@ -235,7 +235,18 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
         return tutoradosAsistencia;
     }
 
+    @Override
+    public void eliminarReporteIncompleto(int idSesion) throws SQLException{
+        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        int filasEliminadas = 0;
+        Connection connection = dataBaseConnection.getConnection();
+        String query = ("DELETE FROM sesion WHERE idSesion = ?");
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, idSesion);
+        filasEliminadas = statement.executeUpdate();
+    }
 
+    @Override
     public int registrarReporte(ReporteTutor reporteTutor) throws SQLException {
         DataBaseConnection dataBaseConnection = new DataBaseConnection();
         int filasInsertadas = 0;
@@ -253,6 +264,7 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
         return filasInsertadas;
     }
 
+    @Override
     public int obtenerIdReporte(ReporteTutor reporteBuscado) throws SQLException {
         int idReporteNuevo = 0;
         DataBaseConnection dataBaseConnection = new DataBaseConnection();
@@ -269,11 +281,11 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
         ResultSet resultSet = statement.executeQuery();
         if(resultSet.next()){
             idReporteNuevo = resultSet.getInt("idSesion");
-            System.out.println(idReporteNuevo);
         }
         return idReporteNuevo;
     }
 
+    @Override
     public int registrarAsistencia(Asistencia listaAsistencia, int idSesion) throws SQLException {
         DataBaseConnection dataBaseConnection = new DataBaseConnection();
         int filasInsertadas = 0;

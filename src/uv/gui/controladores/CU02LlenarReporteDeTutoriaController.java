@@ -37,8 +37,6 @@ import uv.mensajes.Alertas;
 public class CU02LlenarReporteDeTutoriaController implements Initializable {
 
     @FXML
-    private Button btnGuardar;
-    @FXML
     private Button btnEnviarReporte;
     @FXML
     private Button bntCerrarVentana;
@@ -63,7 +61,7 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
     private Alertas alertas = new Alertas();
     private Usuario usuarioActivo;
     private ProgramaEducativo programaEducativoActivo;
-    private ReporteTutor reporteTutor= new ReporteTutor();
+    private ReporteTutor reporteTutorNuevo= new ReporteTutor();
     private SesionTutoria sesionTutoriaActiva = new SesionTutoria();
     final static Logger log = Logger.getLogger(CU02LlenarReporteDeTutoriaController.class);
 
@@ -87,7 +85,7 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
         }
     }
 
-    private void obtenerTutoriaActiva(Periodo periodo) {
+    private void obtenerTutoriaActiva(Periodo periodo) throws SQLException{
         SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
         ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(periodo.getIdPeriodo());
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -121,7 +119,6 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
 
     private void generaNuevoReporte() {
         try {
-            ReporteTutor reporteTutorNuevo = new ReporteTutor();
             reporteTutorNuevo.setIdTutoria(sesionTutoriaActiva.getIdSesionTutoria());
             reporteTutorNuevo.setIdProgramaEducativo(2 /*programaEducativoActivo.getIdProgramaEducativo()*/);
             reporteTutorNuevo.setCuentaUv(usuarioActivo.getCuentaUV());
@@ -131,8 +128,6 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
 
             int idReporteNuevo;
             idReporteNuevo = reporteTutorDAO.obtenerIdReporte(reporteTutorNuevo);
-            System.out.println("Hola");
-            System.out.println(reporteTutor.getIdsesion());
             reporteTutorNuevo.setIdsesion(idReporteNuevo);
         } catch (SQLException exception){
             log.fatal(exception);
@@ -164,26 +159,32 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-    }    
+    }
 
     @FXML
-    private void guardarReporte(ActionEvent event) throws SQLException {
+    private void enviarReporte(ActionEvent event) throws SQLException{
         Asistencia asistencia = new Asistencia();
         ReporteTutorDAO reporteTutorDao = new ReporteTutorDAO();
         do {
             asistencia = asistenciaObservableArray.get(0);
-            System.out.println("Aqui registro " + reporteTutor.getIdsesion());
-            reporteTutorDao.registrarAsistencia(asistencia, reporteTutor.getIdsesion());
+            reporteTutorDao.registrarAsistencia(asistencia, reporteTutorNuevo.getIdsesion());
             asistenciaObservableArray.remove(0);
         } while(!asistenciaObservableArray.isEmpty());
-    }
 
-    @FXML
-    private void enviarReporte(ActionEvent event) {
+        alertas.mostrarAlertaRegistroReporteExitoso();
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void cerrarVentana(ActionEvent event) {
+        try {
+        ReporteTutorDAO reporteTutorDAO = new ReporteTutorDAO();
+        reporteTutorDAO.eliminarReporteIncompleto(reporteTutorNuevo.getIdsesion());
+        } catch (SQLException exception){
+            log.fatal(exception);
+        }
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
@@ -191,6 +192,7 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
 
     @FXML
     private void registrarComentario(ActionEvent event) {
+        
     }
 
     @FXML
@@ -199,7 +201,7 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/uv/gui/interfaces/CU03RegistrarProblematicaAcademicaGUI.fxml").openStream());
         CU03RegistrarProblematicaAcademicaGUIController cu03RegistrarProblematicaAcademicaGUIController = (CU03RegistrarProblematicaAcademicaGUIController) loader.getController();
-        cu03RegistrarProblematicaAcademicaGUIController.recibirParametros(usuarioActivo, programaEducativoActivo/*, reporteTutor.setIdsesion()*/);
+        cu03RegistrarProblematicaAcademicaGUIController.recibirParametros(usuarioActivo, programaEducativoActivo, reporteTutorNuevo.getIdsesion());
         Scene scene = new Scene(root);
         stageMenuTutor.setScene(scene);
         stageMenuTutor.setTitle("Registrar problematica academica");
