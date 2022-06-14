@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="panelModificarSesionTutoria" prefHeight="437.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uv.gui.controladores.ModificarFechasDeSesionDeTutoriaController">
+   <children>
+      <Text layoutX="32.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione las nuevas fechas:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="32.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Periodo:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="dpPrimeraSesion" layoutX="249.0" layoutY="185.0" />
+      <DatePicker fx:id="dpSegundaSesion" layoutX="249.0" layoutY="240.0" />
+      <DatePicker fx:id="dpTerceraSesion" layoutX="249.0" layoutY="290.0" />
+      <Button layoutX="361.0" layoutY="358.0" mnemonicParsing="false" onAction="#guardarInformacion" prefHeight="38.0" prefWidth="91.0" text="Guardar" />
+      <Button layoutX="102.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancelarModificacion" prefHeight="38.0" prefWidth="91.0" text="Cancelar" />
+      <TextField fx:id="tfPeriodoActivo" layoutX="95.0" layoutY="39.0" prefHeight="25.0" prefWidth="251.0" />
+      <Text layoutX="102.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de tutoría">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtPrimeraTutoria" layoutX="156.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtSegundaTutoria" layoutX="156.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtTerceraTutoria" layoutX="156.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
