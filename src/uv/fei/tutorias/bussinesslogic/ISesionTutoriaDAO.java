@@ -1,5 +1,6 @@
 package uv.fei.tutorias.bussinesslogic;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import uv.fei.tutorias.domain.SesionTutoria;
@@ -21,7 +22,7 @@ public interface ISesionTutoriaDAO {
     
     public List<SesionTutoria> consultarTutoriaPorId(int idTutoriaBuscada);
 
-    public ArrayList<SesionTutoria> consultarTutoriaPorPeriodo(int idPeriodo);
+    public ArrayList<SesionTutoria> consultarTutoriaPorPeriodo(int idPeriodo) throws SQLException;
 }
 
 

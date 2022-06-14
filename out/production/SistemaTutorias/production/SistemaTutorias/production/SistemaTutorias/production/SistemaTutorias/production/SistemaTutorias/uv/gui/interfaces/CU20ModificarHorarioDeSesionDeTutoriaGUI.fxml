@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="652.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="uv.gui.controladores.CU20ModificarHorarioDeSesionDeTutoriaGUIController">
+       <children>
+      <TableView fx:id="tblTutoradosHorario" disable="true" layoutX="99.0" layoutY="91.0" prefHeight="249.0" prefWidth="446.0">
+        <columns>
+          <TableColumn fx:id="colMatricula" editable="false" prefWidth="102.0" text="Matricula" />
+          <TableColumn fx:id="colNombre" editable="false" prefWidth="241.0" text="Nombre " />
+            <TableColumn fx:id="colHorario" minWidth="0.0" prefWidth="119.0" text="Horario" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="cbbFechaTutoria" layoutX="126.0" layoutY="31.0" prefHeight="25.0" prefWidth="209.0" promptText="Seleccione una fecha de tutoria" />
+      <TextField fx:id="lblPeriodo" editable="false" layoutX="433.0" layoutY="31.0" />
+      <Button fx:id="btnCerrar" layoutX="63.0" layoutY="411.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="25.0" prefWidth="73.0" text="Cerrar" />
+      <Button fx:id="btnGuardar" layoutX="520.0" layoutY="357.0" mnemonicParsing="false" onAction="#modificarHorario" text="Guardar" />
+      <Label layoutX="390.0" layoutY="35.0" text="Periodo" />
+      <Label layoutX="70.0" layoutY="35.0" text="Tutoria" />
+      <Text layoutX="71.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona un tutorado para registra el horario" />
+      <Label layoutX="68.0" layoutY="361.0" text="Registre el horario para el alumno seleccionado" />
+      <TextField fx:id="txtHorario" layoutX="358.0" layoutY="357.0" />
+      <Text layoutX="358.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejemplo: 09:20:00" />
+   </children>
+</AnchorPane>

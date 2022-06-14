@@ -46,7 +46,7 @@ public class CU03RegistrarProblematicaAcademicaGUIController implements Initiali
     
     final static Logger log = Logger.getLogger(CU03RegistrarProblematicaAcademicaGUIController.class);
 
-    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo) throws SQLException {
+    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo, int idsesion) throws SQLException {
         usuarioActivo = usuario;
         programaEducativoActivo = programaEducativo;
         establecerDocentes();

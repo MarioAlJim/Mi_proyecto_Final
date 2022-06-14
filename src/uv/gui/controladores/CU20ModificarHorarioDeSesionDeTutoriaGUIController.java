@@ -72,7 +72,7 @@ public class CU20ModificarHorarioDeSesionDeTutoriaGUIController implements Initi
         }
     }
 
-    private void mostrarFechasDeTutoria(Periodo periodo){
+    private void mostrarFechasDeTutoria(Periodo periodo) throws SQLException{
         ObservableList<SesionTutoria> opcionesCombo;
         opcionesCombo = FXCollections.observableArrayList();
         SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
