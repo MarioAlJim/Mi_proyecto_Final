@@ -25,39 +25,27 @@ import uv.fei.tutorias.domain.SesionTutoria;
 import uv.mensajes.Alertas;
 import static uv.mensajes.Alertas.mostrarAlertaErrorConexionDB;
 
-/**
- * FXML Controller class
- *
- * @author DMS19
- */
-public class RegistrarFechasDeCierreParaLaEntregaDelReporteController implements Initializable {
 
-    
-
-    Stage stage;
-    @FXML
-    private DatePicker dpPrimerReporte;
+public class ModificarFechasDeSesionDeTutoriaController implements Initializable {
 
     @FXML
-    private DatePicker dpSegundoReporte;
-
+    private DatePicker dpPrimeraSesion;
     @FXML
-    private DatePicker dpTercerReporte;
-
+    private DatePicker dpSegundaSesion;
     @FXML
-    private AnchorPane panelFechaEntregaReporte;
-
+    private DatePicker dpTerceraSesion;
+    @FXML
+    private AnchorPane panelModificarSesionTutoria;
     @FXML
     private TextField tfPeriodoActivo;
-
     @FXML
     private Text txtPrimeraTutoria;
-
     @FXML
     private Text txtSegundaTutoria;
-
     @FXML
     private Text txtTerceraTutoria;
+    
+    Stage stage;
     
     private Usuario usuarioActivo;
     private ProgramaEducativo programaEducativoActivo;
@@ -67,6 +55,10 @@ public class RegistrarFechasDeCierreParaLaEntregaDelReporteController implements
         programaEducativoActivo = programaEducativo;
     }
     
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         PeriodoDAO periodoDao = new PeriodoDAO();
@@ -79,29 +71,22 @@ public class RegistrarFechasDeCierreParaLaEntregaDelReporteController implements
             //lblPeriodoActivo.setEnabled(false);
             
         } catch (SQLException ex) {
+            mostrarAlertaErrorConexionDB();
             Logger.getLogger(RegistrarFechasDeSesionDeTutoriaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
 
     @FXML
-    private void cancelarRegistro(ActionEvent event) {
-        /*Optional<ButtonType> respuesta = Alertas.mostrarAlertaBoton(Alert.AlertType.ERROR, "Cancelar", "Confirmar cancelar registro",
-                "¿Esta seguro de que desea cancelar el registro?");
-        if (respuesta.get() == ButtonType.OK) {
-                stage = (Stage) panelFechaEntregaReporte.getScene().getWindow();
-                stage.close();
-        }*/
-    }
-
-    @FXML
-    private void enviarInformacion(ActionEvent event) throws SQLException {
-        registrarSesion(dpPrimerReporte, txtPrimeraTutoria);
-        registrarSesion(dpSegundoReporte, txtSegundaTutoria);
-        registrarSesion(dpTercerReporte, txtTerceraTutoria);
+    private void guardarInformacion(ActionEvent event) throws SQLException {
+        
+        modificarSesion(dpPrimeraSesion, txtPrimeraTutoria);
+        modificarSesion(dpSegundaSesion, txtSegundaTutoria);
+        modificarSesion(dpTerceraSesion, txtTerceraTutoria);
+        
         
     }
     
-    public void registrarSesion(DatePicker fechaReporte, Text txtPrimeraTutoria) throws SQLException{
+    public void modificarSesion(DatePicker fechaTutoria, Text numeroTutoria) throws SQLException{
         PeriodoDAO periodoDao = new PeriodoDAO();
         Periodo periodo = new Periodo();
         periodo = periodoDao.consultarPeriodoActivo();
@@ -109,18 +94,29 @@ public class RegistrarFechasDeCierreParaLaEntregaDelReporteController implements
         
         SesionTutoriaDAO SesionTutoriaDAO = new SesionTutoriaDAO();
         SesionTutoria nuevaSesionTutoria = new SesionTutoria();
-        String fecha = fechaReporte.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        nuevaSesionTutoria.setFechaCierreReportes(fecha);
+        String fecha = fechaTutoria.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        nuevaSesionTutoria.setFechaTutoria(fecha);
         
-        String numTutoria = txtPrimeraTutoria.getText();
+        String numTutoria = numeroTutoria.getText();
+        
+        System.out.println("IdPeriodo "+ idPeriodo + "NumTutoria "+ numTutoria);
         
         try{
-        SesionTutoriaDAO.registrarFechaDeCierreDeReporte(nuevaSesionTutoria, idPeriodo,numTutoria);
+        SesionTutoriaDAO.actualizarFechasDeSesionTutoria(nuevaSesionTutoria, idPeriodo, numTutoria);
         }catch(SQLException e){
             mostrarAlertaErrorConexionDB();
         }
         
     }
-    
+
+    @FXML
+    private void cancelarModificacion(ActionEvent event) {
+        /*Optional<ButtonType> respuesta = Alertas.mostrarAlertaBoton(Alert.AlertType.ERROR, "Cancelar", "Confirmar cancelar registro",
+                "¿Esta seguro de que desea cancelar el registro?");
+        if (respuesta.get() == ButtonType.OK) {
+                stage = (Stage) panelModificarSesionTutoria.getScene().getWindow();
+                stage.close();
+        }*/
+    }
     
 }

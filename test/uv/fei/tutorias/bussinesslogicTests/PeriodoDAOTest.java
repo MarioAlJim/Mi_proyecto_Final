@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package uv.fei.tutorias.bussinesslogicTests;
 
 import java.util.ArrayList;
@@ -15,10 +15,7 @@ import uv.fei.tutorias.bussinesslogic.PeriodoDAO;
 import static org.junit.Assert.*;
 import uv.fei.tutorias.domain.Periodo;
 
-/**
- *
- * @author DMS19
- */
+
 public class PeriodoDAOTest {
     
     public PeriodoDAOTest() {
@@ -40,9 +37,7 @@ public class PeriodoDAOTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of consultarPeriodoTodosLosPeriodos method, of class PeriodoDAO.
-     */
+    
     @Test
     public void testConsultarPeriodoTodosLosPeriodos() {
         System.out.println("consultarPeriodoTodosLosPeriodos");
@@ -54,9 +49,7 @@ public class PeriodoDAOTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of registrarPeriodo method, of class PeriodoDAO.
-     */
+    
     @Test
     public void testRegistrarPeriodo() {
         System.out.println("registrarPeriodo");
@@ -67,9 +60,7 @@ public class PeriodoDAOTest {
         periodoDao.registrarPeriodo(periodoNuevo);
     }
 
-    /**
-     * Test of eliminarPeriodoId method, of class PeriodoDAO.
-     */
+    
     @Test
     public void testEliminarPeriodoId() {
         System.out.println("eliminarPeriodoId");
@@ -82,9 +73,7 @@ public class PeriodoDAOTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of actualizarPeriodo method, of class PeriodoDAO.
-     */
+    
     @Test
     public void testActualizarPeriodo() {
         System.out.println("actualizarPeriodo");
@@ -99,3 +88,4 @@ public class PeriodoDAOTest {
 
     
 }
+ */

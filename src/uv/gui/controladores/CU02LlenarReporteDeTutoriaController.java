@@ -1,4 +1,4 @@
-package uv.gui.controladores;
+/*package uv.gui.controladores;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,8 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.time.format.DateTimeFormatter;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +26,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.apache.log4j.Logger;
 import uv.fei.tutorias.bussinesslogic.PeriodoDAO;
 import uv.fei.tutorias.bussinesslogic.ReporteTutorDAO;
 import uv.fei.tutorias.bussinesslogic.SesionTutoriaDAO;
@@ -211,3 +209,4 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
     }
     
 }
+*/

@@ -2,7 +2,6 @@ package uv.gui.controladores;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -18,46 +17,33 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uv.fei.tutorias.bussinesslogic.PeriodoDAO;
-import uv.fei.tutorias.bussinesslogic.SesionTutoriaDAO;
 import uv.fei.tutorias.domain.Periodo;
 import uv.fei.tutorias.domain.ProgramaEducativo;
-import uv.fei.tutorias.domain.SesionTutoria;
 import uv.mensajes.Alertas;
 import static uv.mensajes.Alertas.mostrarAlertaErrorConexionDB;
 
-/**
- * FXML Controller class
- *
- * @author DMS19
- */
-public class RegistrarFechasDeCierreParaLaEntregaDelReporteController implements Initializable {
 
-    
-
-    Stage stage;
-    @FXML
-    private DatePicker dpPrimerReporte;
-
-    @FXML
-    private DatePicker dpSegundoReporte;
-
-    @FXML
-    private DatePicker dpTercerReporte;
-
-    @FXML
-    private AnchorPane panelFechaEntregaReporte;
+public class ModificarFechaDeCierreParaLaEntregaDelReporteController implements Initializable {
 
     @FXML
     private TextField tfPeriodoActivo;
-
     @FXML
     private Text txtPrimeraTutoria;
-
+    @FXML
+    private DatePicker dpPrimeraSesion;
     @FXML
     private Text txtSegundaTutoria;
-
+    @FXML
+    private DatePicker dpSegundaSesion;
+    @FXML
+    private DatePicker dpTerceraSesion;
     @FXML
     private Text txtTerceraTutoria;
+    @FXML
+    private AnchorPane panelFechaDeCierreDelReporte;
+    
+    Stage stage;
+
     
     private Usuario usuarioActivo;
     private ProgramaEducativo programaEducativoActivo;
@@ -79,48 +65,24 @@ public class RegistrarFechasDeCierreParaLaEntregaDelReporteController implements
             //lblPeriodoActivo.setEnabled(false);
             
         } catch (SQLException ex) {
+            mostrarAlertaErrorConexionDB();
             Logger.getLogger(RegistrarFechasDeSesionDeTutoriaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    }
+    
+    @FXML
+    private void guardarInformacion(ActionEvent event) {
+    }
 
     @FXML
-    private void cancelarRegistro(ActionEvent event) {
-        /*Optional<ButtonType> respuesta = Alertas.mostrarAlertaBoton(Alert.AlertType.ERROR, "Cancelar", "Confirmar cancelar registro",
+    private void cancelarModificacion(ActionEvent event) {
+        /*
+        Optional<ButtonType> respuesta = Alertas.mostrarAlertaBoton(Alert.AlertType.ERROR, "Cancelar", "Confirmar cancelar registro",
                 "¿Esta seguro de que desea cancelar el registro?");
         if (respuesta.get() == ButtonType.OK) {
-                stage = (Stage) panelFechaEntregaReporte.getScene().getWindow();
+                stage = (Stage) panelFechaDeCierreDelReporte.getScene().getWindow();
                 stage.close();
         }*/
     }
 
-    @FXML
-    private void enviarInformacion(ActionEvent event) throws SQLException {
-        registrarSesion(dpPrimerReporte, txtPrimeraTutoria);
-        registrarSesion(dpSegundoReporte, txtSegundaTutoria);
-        registrarSesion(dpTercerReporte, txtTerceraTutoria);
-        
-    }
-    
-    public void registrarSesion(DatePicker fechaReporte, Text txtPrimeraTutoria) throws SQLException{
-        PeriodoDAO periodoDao = new PeriodoDAO();
-        Periodo periodo = new Periodo();
-        periodo = periodoDao.consultarPeriodoActivo();
-        int idPeriodo = periodo.getIdPeriodo();
-        
-        SesionTutoriaDAO SesionTutoriaDAO = new SesionTutoriaDAO();
-        SesionTutoria nuevaSesionTutoria = new SesionTutoria();
-        String fecha = fechaReporte.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        nuevaSesionTutoria.setFechaCierreReportes(fecha);
-        
-        String numTutoria = txtPrimeraTutoria.getText();
-        
-        try{
-        SesionTutoriaDAO.registrarFechaDeCierreDeReporte(nuevaSesionTutoria, idPeriodo,numTutoria);
-        }catch(SQLException e){
-            mostrarAlertaErrorConexionDB();
-        }
-        
-    }
-    
-    
 }

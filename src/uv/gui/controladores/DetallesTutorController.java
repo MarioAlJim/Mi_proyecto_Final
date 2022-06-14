@@ -6,30 +6,25 @@ package uv.gui.controladores;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import uv.fei.tutorias.domain.Tutor;
 
 /**
  * FXML Controller class
  *
- * @author Valea
+ * @author DMS19
  */
-public class CU07ModificarProblematicaController implements Initializable {
+public class DetallesTutorController implements Initializable {
 
-    @FXML
-    private Button btnCerrar;
-    @FXML
-    private Button btnModificar;
-    @FXML
-    private Button btnEliminar;
-
-    /**
-     * Initializes the controller class.
-     */
+    private Tutor reporteDetalle;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    
+    
+    
     
 }

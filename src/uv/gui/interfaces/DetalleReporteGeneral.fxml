@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="687.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uv.gui.controladores.DetalleReporteGeneralController">
+   <children>
+      <Text layoutX="193.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reporte general de tutorías" textAlignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Text layoutX="31.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de sesión:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="31.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Periodo:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="31.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de tutoría:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="406.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de estudiantes:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="406.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de estudiantes que asitieron:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="406.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de estudiantes en riesgo:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="31.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Concentrado de Problemas Académicos reportados por los alumnos:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableProblematicas" layoutX="31.0" layoutY="219.0" prefHeight="168.0" prefWidth="1053.0">
+        <columns>
+          <TableColumn fx:id="colExperienciaEducativa" prefWidth="153.0" text="Experiencia educativa" />
+          <TableColumn fx:id="colDocente" prefWidth="163.0" text="Docente" />
+            <TableColumn fx:id="colTitulo" prefWidth="200.0" text="Título" />
+            <TableColumn fx:id="colDescripcion" prefWidth="452.0" text="Descripción" />
+            <TableColumn fx:id="colNumeroAlumnos" prefWidth="79.0" text="#Alumnos" />
+        </columns>
+      </TableView>
+      <Text layoutX="31.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de tutores comentarios Generales:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableComentarios" layoutX="34.0" layoutY="448.0" prefHeight="161.0" prefWidth="1053.0">
+        <columns>
+          <TableColumn fx:id="colTutor" prefWidth="291.0" text="Tutor" />
+          <TableColumn fx:id="colComentario" prefWidth="754.0" text="Comentario" />
+        </columns>
+      </TableView>
+      <Button layoutX="403.0" layoutY="630.0" mnemonicParsing="false" onAction="#salir" prefHeight="37.0" prefWidth="103.0" text="Salir" />
+   </children>
+</AnchorPane>
