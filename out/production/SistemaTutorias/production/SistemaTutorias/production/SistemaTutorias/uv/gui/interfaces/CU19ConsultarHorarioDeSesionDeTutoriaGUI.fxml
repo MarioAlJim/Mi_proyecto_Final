@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="438.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uv.gui.controladores.CU19ConsultarHorarioDeSesionDeTutoriaGUIController">
+   <children>
+      <TableView fx:id="tblTutoradosHorario" layoutX="59.0" layoutY="82.0" prefHeight="297.0" prefWidth="463.0">
+        <columns>
+          <TableColumn fx:id="colMatricula" editable="false" prefWidth="102.0" text="Matricula" />
+          <TableColumn fx:id="colNombre" editable="false" prefWidth="247.0" text="Nombre " />
+            <TableColumn fx:id="colHorario" minWidth="0.0" prefWidth="113.0" text="Horario" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="cbbFechaTutoria" focusTraversable="false" layoutX="312.0" layoutY="38.0" prefHeight="25.0" prefWidth="209.0" promptText="Seleccione una fecha de tutoria" />
+      <Button fx:id="btnCancelar" layoutX="473.0" layoutY="392.0" mnemonicParsing="false" onAction="#cancelarOperacion" text="Cerrar" />
+      <Label layoutX="59.0" layoutY="15.0" text="Periodo" />
+      <Label layoutX="312.0" layoutY="15.0" text="Tutoria" />
+      <ComboBox fx:id="cbbPeriodo" layoutX="59.0" layoutY="38.0" prefHeight="25.0" prefWidth="185.0" promptText="Seleccione un periodo" />
+   </children>
+</AnchorPane>

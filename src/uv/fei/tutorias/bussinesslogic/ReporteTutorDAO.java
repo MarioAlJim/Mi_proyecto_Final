@@ -9,15 +9,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import uv.fei.tutorias.dataaccess.DataBaseConnection;
-import uv.fei.tutorias.domain.Asistencia;
-import uv.fei.tutorias.domain.ComentarioGeneral;
-import uv.fei.tutorias.domain.ProblematicaReporte;
-import uv.fei.tutorias.domain.ReporteTutor;
+import uv.fei.tutorias.domain.*;
+import org.apache.log4j.Logger;
 
 public class ReporteTutorDAO implements IReporteTutorDAO {
+
+    final static Logger log = Logger.getLogger(ReporteTutorDAO.class);
 
     @Override
     public ArrayList<ReporteTutor> consultarReportesTutor() { // agregar variable de programa educativo
@@ -56,7 +54,7 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
                 
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TutorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.fatal(ex);
         }
         return reportestutores;
     }
@@ -99,7 +97,7 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
                 
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TutorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.fatal(ex);
         }
         return reportetutor;
     }
@@ -136,7 +134,7 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
                 
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TutorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.fatal(ex);
         }
         return asistencias;
     }
@@ -157,7 +155,7 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
                           
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TutorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.fatal(ex);
         }
         return comentario;
     }
@@ -194,9 +192,104 @@ public class ReporteTutorDAO implements IReporteTutorDAO {
                 
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TutorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.fatal(ex);
         }
         return problematicas;
     }
-    
+
+    @Override
+    public ArrayList<Asistencia> obtenerTutoradosParaAsistencia(String cuentaUV, int idProgramaEducativo) {
+        ArrayList<Asistencia> tutoradosAsistencia = new ArrayList<>();
+        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        try(Connection connection=dataBaseConnection.getConnection()){
+            String query= ("SELECT tutorados.Matricula, tutorados.Nombre, tutorados.ApellidoPaterno, tutorados.ApellidoMaterno FROM tutorados " +
+                    "INNER JOIN tutorestutorados ON tutorestutorados.Matricula = tutorados.Matricula " +
+                    "INNER JOIN tutoradosprogramas ON tutoradosprogramas.Matricula = tutorados. Matricula " +
+                    "WHERE tutorestutorados.CuentaUV = ? AND tutoradosprogramas.IdProgramaEducativo = ?;");
+            PreparedStatement statement=connection.prepareStatement(query);
+            statement.setString(1, cuentaUV);
+            statement.setInt(2, idProgramaEducativo);
+            ResultSet resultSet=statement.executeQuery();
+            if (resultSet.next()) {
+                String matricula;
+                String nombre;
+                String apellidoPaterno;
+                String apellidoMaterno;
+                do {
+                    matricula = resultSet.getString("Matricula");
+                    nombre = resultSet.getString("Nombre");
+                    apellidoPaterno = resultSet.getString("ApellidoPaterno");
+                    apellidoMaterno = resultSet.getString("ApellidoMaterno");
+                    Asistencia tutoradoAsistencia = new Asistencia();
+                    tutoradoAsistencia.setMatricula(matricula);
+                    tutoradoAsistencia.setNombre(nombre);
+                    tutoradoAsistencia.setApellidoPaterno(apellidoPaterno);
+                    tutoradoAsistencia.setApellidoMaterno(apellidoMaterno);
+                    tutoradoAsistencia.setNombreCompleto(nombre + " " + apellidoPaterno + " " + apellidoMaterno);
+                    tutoradosAsistencia.add(tutoradoAsistencia);
+                }while (resultSet.next());
+            }
+        } catch (SQLException ex) {
+            log.fatal(ex);
+        }
+        return tutoradosAsistencia;
+    }
+
+
+    public int registrarReporte(ReporteTutor reporteTutor) throws SQLException {
+        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        int filasInsertadas = 0;
+        Connection connection = dataBaseConnection.getConnection();
+        int idTutoria = reporteTutor.getIdTutoria();
+        int idProgramaEducativo = reporteTutor.getIdProgramaEducativo();
+        String cuentaUv = reporteTutor.getCuentaUv();
+        String query = "INSERT INTO sesion (IdProgramaEducativo, IdTutoria, cuentauv) "
+                + "VALUES ( ?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, idProgramaEducativo);
+        statement.setInt(2, idTutoria);
+        statement.setString(3, cuentaUv);
+        filasInsertadas = statement.executeUpdate();
+        return filasInsertadas;
+    }
+
+    public int obtenerIdReporte(ReporteTutor reporteBuscado) throws SQLException {
+        int idReporteNuevo = 0;
+        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        Connection connection = dataBaseConnection.getConnection();
+        String query = ("SELECT idSesion FROM sesion " +
+                "WHERE IdProgramaEducativo = ? AND IdTutoria = ? AND cuentauv = ?");
+        PreparedStatement statement = connection.prepareStatement(query);
+        int idProgramaEducativo = reporteBuscado.getIdProgramaEducativo();
+        String cuentauv = reporteBuscado.getCuentaUv();
+        int idTutoria = reporteBuscado.getIdTutoria();
+        statement.setInt(1, idProgramaEducativo);
+        statement.setInt(2, idTutoria);
+        statement.setString(3, cuentauv);
+        ResultSet resultSet = statement.executeQuery();
+        if(resultSet.next()){
+            idReporteNuevo = resultSet.getInt("idSesion");
+            System.out.println(idReporteNuevo);
+        }
+        return idReporteNuevo;
+    }
+
+    public int registrarAsistencia(Asistencia listaAsistencia, int idSesion) throws SQLException {
+        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        int filasInsertadas = 0;
+        Connection connection = dataBaseConnection.getConnection();
+        String matricula = listaAsistencia.getMatricula();
+        String query = "INSERT INTO tutoriasasistencias (idsesion, Matricula, asistencia, riesgo) "
+                + "VALUES (?, ?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, idSesion);
+        statement.setString(2, matricula);
+        statement.setInt(3, 1);
+        if(listaAsistencia.getRiesgo())
+            statement.setInt(4, 1);
+        else
+            statement.setInt(4,0);
+        filasInsertadas = statement.executeUpdate();
+        return filasInsertadas;
+    }
 }

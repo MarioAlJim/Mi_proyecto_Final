@@ -1,6 +1,5 @@
 package uv.fei.tutorias.bussinesslogic;
 
-import com.sun.javafx.collections.ArrayListenerHelper;
 import uv.fei.tutorias.dataaccess.DataBaseConnection;
 import uv.fei.tutorias.domain.Horario;
 import java.sql.Connection;
@@ -8,9 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import org.apache.log4j.Logger;
-import uv.fei.tutorias.domain.Tutorado;
 
 public class HorarioDAO implements IHorarioDAO {
 
@@ -150,20 +147,19 @@ public class HorarioDAO implements IHorarioDAO {
     }
 
 
-    public ArrayList<Horario> obtenerTutoradosParaRegistrodeHorario(String cuentaUV){
+    public ArrayList<Horario> obtenerTutoradosParaRegistrodeHorario(String cuentaUV, int idProgramaEducativo){
         ArrayList<Horario> tutoradosHorario = new ArrayList<>();
         DataBaseConnection dataBaseConnection = new DataBaseConnection();
         try(Connection connection=dataBaseConnection.getConnection()){
-            String query=
-                    "SELECT tutorados.Matricula, tutorados.Nombre, tutorados.ApellidoPaterno, tutorados.ApellidoMaterno FROM tutorados " +
-                            "inner join tutorestutorados on tutorestutorados.Matricula = tutorados.Matricula " +
-                            "where tutorestutorados.CuentaUV = ?";
+            String query= ("SELECT tutorados.Matricula, tutorados.Nombre, tutorados.ApellidoPaterno, tutorados.ApellidoMaterno FROM tutorados " +
+                    "INNER JOIN tutorestutorados ON tutorestutorados.Matricula = tutorados.Matricula " +
+                    "INNER JOIN tutoradosprogramas ON tutoradosprogramas.Matricula = tutorados. Matricula " +
+                    "WHERE tutorestutorados.CuentaUV = ? AND tutoradosprogramas.IdProgramaEducativo = ?;");
             PreparedStatement statement=connection.prepareStatement(query);
             statement.setString(1, cuentaUV);
+            statement.setInt(2, idProgramaEducativo);
             ResultSet resultSet=statement.executeQuery();
-            if (!resultSet.next()){
-                throw new SQLException("No se encontraron tutorados");
-            }else{
+            if (resultSet.next()) {
                 String matricula;
                 String nombre;
                 String apellidoPaterno;
@@ -178,6 +174,7 @@ public class HorarioDAO implements IHorarioDAO {
                     tutoradoHorario.setNombre(nombre);
                     tutoradoHorario.setApellidoPaterno(apellidoPaterno);
                     tutoradoHorario.setApellidoMaterno(apellidoMaterno);
+                    tutoradoHorario.setNombreCompleto(nombre + " " + apellidoPaterno + " " + apellidoMaterno);
                     tutoradosHorario.add(tutoradoHorario);
                 }while (resultSet.next());
             }

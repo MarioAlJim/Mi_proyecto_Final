@@ -124,7 +124,7 @@ public class CU17RegistrarHorariodeSesiondeTutoriaGUIController implements Initi
         }else{
             HorarioDAO horarioDAO1 = new HorarioDAO();
             ArrayList<Horario> tutoradosdeTutor;
-            tutoradosdeTutor = horarioDAO1.obtenerTutoradosParaRegistrodeHorario(usuarioActivo.getCuentaUV());
+            tutoradosdeTutor = horarioDAO1.obtenerTutoradosParaRegistrodeHorario(usuarioActivo.getCuentaUV(), 2);
             horarioNuevoObservableList = FXCollections.observableArrayList();
             for (Horario horariosNuevo : tutoradosdeTutor) {
                 horarioNuevoObservableList.add(horariosNuevo);
