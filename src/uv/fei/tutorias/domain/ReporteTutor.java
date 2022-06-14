@@ -3,10 +3,38 @@ package uv.fei.tutorias.domain;
 public class ReporteTutor {
     private int idsesion;
     private String periodo;
-    private int  numTutoria; 
+    private int  numTutoria;
+    private int idTutoria;
     private String nombreTutor;
     private String fecha;
     private String programaeducativo;
+    private String cuentaUv;
+    private int idProgramaEducativo;
+
+
+    public int getIdTutoria() {
+        return idTutoria;
+    }
+
+    public void setIdTutoria(int idTutoria) {
+        this.idTutoria = idTutoria;
+    }
+
+    public String getCuentaUv() {
+        return cuentaUv;
+    }
+
+    public void setCuentaUv(String cuentaUv) {
+        this.cuentaUv = cuentaUv;
+    }
+
+    public int getIdProgramaEducativo() {
+        return idProgramaEducativo;
+    }
+
+    public void setIdProgramaEducativo(int idProgramaEducativo) {
+        this.idProgramaEducativo = idProgramaEducativo;
+    }
 
     public String getProgramaeducativo() {
         return programaeducativo;

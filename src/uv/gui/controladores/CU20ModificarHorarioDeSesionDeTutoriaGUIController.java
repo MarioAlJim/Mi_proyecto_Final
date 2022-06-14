@@ -64,7 +64,7 @@ public class CU20ModificarHorarioDeSesionDeTutoriaGUIController implements Initi
         PeriodoDAO periodoDAO = new PeriodoDAO();
         try {
             periodo = periodoDAO.consultarPeriodoActivo();
-            lblPeriodo.setText(periodo.getPeriodoCompleto());
+            lblPeriodo.setText(periodo.toString());
             mostrarFechasDeTutoria(periodo);
         } catch (SQLException exception) {
             alertas.mostrarAlertaErrorConexionDB();

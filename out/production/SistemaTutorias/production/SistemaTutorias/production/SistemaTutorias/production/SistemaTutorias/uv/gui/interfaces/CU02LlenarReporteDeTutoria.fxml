@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uv.gui.controladores.CU02LlenarReporteDeTutoriaController">
+   <children>
+      <Button fx:id="btnGuardar" layoutX="536.0" layoutY="353.0" mnemonicParsing="false" onAction="#guardarReporte" text="Guardar" AnchorPane.rightAnchor="60.0" />
+      <Button fx:id="btnEnviarReporte" layoutX="474.0" layoutY="353.0" mnemonicParsing="false" onAction="#enviarReporte" text="Enviar" AnchorPane.rightAnchor="150.0" />
+      <Button fx:id="bntCerrarVentana" layoutX="45.0" layoutY="353.0" mnemonicParsing="false" onAction="#cerrarVentana" text="Cerrar" AnchorPane.leftAnchor="60.0" />
+      <TableView fx:id="tblTutorados" layoutX="26.0" layoutY="72.0" prefHeight="256.0" prefWidth="411.0" AnchorPane.leftAnchor="25.0">
+        <columns>
+          <TableColumn fx:id="colAsistencia" prefWidth="75.0" text="Asistencia" />
+          <TableColumn fx:id="colNombre" prefWidth="254.0" text="Tutorado" />
+            <TableColumn fx:id="colRiesgo" minWidth="0.0" text="En riesgo" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtPeriodo" layoutX="94.0" layoutY="21.0" />
+      <TextField fx:id="txtTutoria" layoutX="461.0" layoutY="21.0" AnchorPane.rightAnchor="40.0" />
+      <Label layoutX="45.0" layoutY="25.0" text="Periodo:" AnchorPane.leftAnchor="40.0" />
+      <Label layoutX="409.0" layoutY="25.0" text="Tutoria actual:" />
+      <Button fx:id="btnComentario" layoutX="476.0" layoutY="141.0" mnemonicParsing="false" onAction="#registrarComentario" text="Registrar ccomentario general" AnchorPane.rightAnchor="31.0" />
+      <Button fx:id="btnProblematicas" layoutX="460.0" layoutY="200.0" mnemonicParsing="false" onAction="#registrarProblematicas" text="Registrar problematicas academicas" />
+      
+   </children>
+</AnchorPane>

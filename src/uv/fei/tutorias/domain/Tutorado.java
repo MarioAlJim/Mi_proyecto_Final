@@ -8,7 +8,16 @@ public class Tutorado {
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String correo;
-    
+    private String nombreCompleto;
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
     public void setMatricula(String matricula){
         this.matricula = matricula;
     }

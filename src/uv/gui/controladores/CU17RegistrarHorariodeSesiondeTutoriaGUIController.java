@@ -82,7 +82,7 @@ public class CU17RegistrarHorariodeSesiondeTutoriaGUIController implements Initi
         PeriodoDAO periodoDAO = new PeriodoDAO();
         try {
             periodo = periodoDAO.consultarPeriodoActivo();
-            lblPeriodo.setText(periodo.getPeriodoCompleto());
+            lblPeriodo.setText(periodo.toString());
             mostrarFechasDeTutoria(periodo);
         } catch (SQLException exception) {
             log.fatal(exception);
@@ -124,7 +124,7 @@ public class CU17RegistrarHorariodeSesiondeTutoriaGUIController implements Initi
         }else{
             HorarioDAO horarioDAO1 = new HorarioDAO();
             ArrayList<Horario> tutoradosdeTutor;
-            tutoradosdeTutor = horarioDAO1.obtenerTutoradosParaRegistrodeHorario(usuarioActivo.getCuentaUV());
+            tutoradosdeTutor = horarioDAO1.obtenerTutoradosParaRegistrodeHorario(usuarioActivo.getCuentaUV(), 2);
             horarioNuevoObservableList = FXCollections.observableArrayList();
             for (Horario horariosNuevo : tutoradosdeTutor) {
                 horarioNuevoObservableList.add(horariosNuevo);
