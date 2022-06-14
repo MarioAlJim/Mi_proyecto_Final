@@ -86,16 +86,6 @@ public class PeriodoDAOTest {
         fail("The test case is a prototype.");
     }
 
-    @Test
-    public void testConsultarPeriodoPorId() {
-        System.out.println("consultarPeriodoPorId");
-        int idPeriodoBuscado = 10;
-        PeriodoDAO instance = new PeriodoDAO();
-        Periodo expResult = null;
-        Periodo result = instance.consultarPeriodoPorId(idPeriodoBuscado);
-        System.out.println(result.getPeriodoCompleto());
-        assertEquals(result, result);
-    }
     
 }
  */

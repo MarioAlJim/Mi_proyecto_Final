@@ -28,7 +28,7 @@ public class Alertas {
     }
 
     public void mostrarAlertaRegistroExitoso() {
-        alert.setTitle("Atención");
+        alert.setTitle("Completado");
         alert.setHeaderText("Registro completado");
         alert.setContentText("El registro de la ifnormación se a almacenado correctamente.");
         alert.showAndWait();
@@ -66,6 +66,13 @@ public class Alertas {
         alert.setTitle("Atencion");
         alert.setHeaderText("Esta fecha de tutoria no tiene un horario registrado");
         alert.setContentText("Por favor seleccione otra fecha");
+        alert.showAndWait();
+    }
+
+    public void mostrarAlertaRegistroReporteExitoso(){
+        alert.setTitle("Completado");
+        alert.setHeaderText("Reporte Enviado");
+        alert.setContentText("Su reporte se almaceno con exito");
         alert.showAndWait();
     }
 }

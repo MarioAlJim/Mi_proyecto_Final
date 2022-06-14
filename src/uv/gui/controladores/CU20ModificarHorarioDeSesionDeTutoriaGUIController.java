@@ -64,7 +64,7 @@ public class CU20ModificarHorarioDeSesionDeTutoriaGUIController implements Initi
         PeriodoDAO periodoDAO = new PeriodoDAO();
         try {
             periodo = periodoDAO.consultarPeriodoActivo();
-            lblPeriodo.setText(periodo.getPeriodoCompleto());
+            lblPeriodo.setText(periodo.toString());
             mostrarFechasDeTutoria(periodo);
         } catch (SQLException exception) {
             alertas.mostrarAlertaErrorConexionDB();
@@ -72,7 +72,7 @@ public class CU20ModificarHorarioDeSesionDeTutoriaGUIController implements Initi
         }
     }
 
-    private void mostrarFechasDeTutoria(Periodo periodo){
+    private void mostrarFechasDeTutoria(Periodo periodo) throws SQLException{
         ObservableList<SesionTutoria> opcionesCombo;
         opcionesCombo = FXCollections.observableArrayList();
         SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();

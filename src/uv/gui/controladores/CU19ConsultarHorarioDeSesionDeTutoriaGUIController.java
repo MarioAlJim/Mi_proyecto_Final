@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 import uv.fei.tutorias.bussinesslogic.HorarioDAO;
 import uv.fei.tutorias.bussinesslogic.PeriodoDAO;
 import uv.fei.tutorias.bussinesslogic.SesionTutoriaDAO;
@@ -42,9 +43,15 @@ public class CU19ConsultarHorarioDeSesionDeTutoriaGUIController implements Initi
     Usuario usuarioActivo;
     ProgramaEducativo programaEducativoActivo;
     Alertas alertas = new Alertas();
+    final static Logger log = Logger.getLogger(CU19ConsultarHorarioDeSesionDeTutoriaGUIController.class);
 
+    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo) throws SQLException {
+        usuarioActivo = usuario;
+        programaEducativoActivo = programaEducativo;
+        establecerPeriodoFechasTutoria();
+    }
 
-    private void establecerPeriodoFechasTutoria(){
+    private void establecerPeriodoFechasTutoria() throws SQLException{
         ArrayList<Periodo> periodo;
         PeriodoDAO periodoDAO = new PeriodoDAO();
         periodo = periodoDAO.consultarTodosLosPeriodos();
@@ -62,23 +69,27 @@ public class CU19ConsultarHorarioDeSesionDeTutoriaGUIController implements Initi
         });
     }
 
-    private void mostrarFechasDeTutoria(int idPeriodo){
-        ObservableList<SesionTutoria> opcionesCombo;
-        opcionesCombo = FXCollections.observableArrayList();
-        SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
-        ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(idPeriodo);
-        for(SesionTutoria sesionTutoriaciclo : sesionesTutorias){
-            opcionesCombo.add(sesionTutoriaciclo);
-        }
-        cbbFechaTutoria.setItems(opcionesCombo);
-
-        cbbFechaTutoria.valueProperty().addListener((ov, valorAntiguo, valorNuevo) -> {
-            tblTutoradosHorario.getItems().clear();
-            if(valorNuevo != null){
-            SesionTutoria sesionTutoria = (SesionTutoria) valorNuevo;
-                mostrarHorario(sesionTutoria);
+    private void mostrarFechasDeTutoria(int idPeriodo) {
+        try {
+            ObservableList<SesionTutoria> opcionesCombo;
+            opcionesCombo = FXCollections.observableArrayList();
+            SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
+            ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(idPeriodo);
+            for (SesionTutoria sesionTutoriaciclo : sesionesTutorias) {
+                opcionesCombo.add(sesionTutoriaciclo);
             }
-        });
+            cbbFechaTutoria.setItems(opcionesCombo);
+
+            cbbFechaTutoria.valueProperty().addListener((ov, valorAntiguo, valorNuevo) -> {
+                tblTutoradosHorario.getItems().clear();
+                if (valorNuevo != null) {
+                    SesionTutoria sesionTutoria = (SesionTutoria) valorNuevo;
+                    mostrarHorario(sesionTutoria);
+                }
+            });
+        }catch (SQLException exception){
+            log.fatal(exception);
+        }
     }
 
     private void mostrarHorario(SesionTutoria sesionTutoria){
@@ -101,7 +112,7 @@ public class CU19ConsultarHorarioDeSesionDeTutoriaGUIController implements Initi
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        establecerPeriodoFechasTutoria();
+
     }
 
     @FXML
@@ -111,7 +122,5 @@ public class CU19ConsultarHorarioDeSesionDeTutoriaGUIController implements Initi
         stage.close();
     }
 
-    public void recibirParametros(Usuario usuario) {
-        usuarioActivo = usuario;
-    }
+
 }

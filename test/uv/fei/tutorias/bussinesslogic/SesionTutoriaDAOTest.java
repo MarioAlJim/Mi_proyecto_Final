@@ -4,6 +4,7 @@
  */
 package uv.fei.tutorias.bussinesslogic;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
@@ -21,7 +22,7 @@ public class SesionTutoriaDAOTest {
 
 
     @Test
-    public void testConsultarTutoriaPorPeriodo() {
+    public void testConsultarTutoriaPorPeriodo() throws SQLException {
         System.out.println("consultarTutoriaPorPeriodo");
         int idPeriodo = 10;
         SesionTutoriaDAO instance = new SesionTutoriaDAO();

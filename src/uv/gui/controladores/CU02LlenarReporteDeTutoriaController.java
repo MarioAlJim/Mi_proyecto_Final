@@ -1,32 +1,39 @@
 /*package uv.gui.controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import uv.fei.tutorias.bussinesslogic.PeriodoDAO;
+import uv.fei.tutorias.bussinesslogic.ReporteTutorDAO;
 import uv.fei.tutorias.bussinesslogic.SesionTutoriaDAO;
 import uv.fei.tutorias.domain.*;
 import uv.mensajes.Alertas;
 
 public class CU02LlenarReporteDeTutoriaController implements Initializable {
 
-    @FXML
-    private Button btnGuardar;
     @FXML
     private Button btnEnviarReporte;
     @FXML
@@ -48,15 +55,19 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
     @FXML
     private Button btnProblematicas;
 
-    Alertas alertas = new Alertas();
-    Usuario usuarioActivo;
-    ProgramaEducativo programaEducativoActivo;
+    private  ObservableList<Asistencia> asistenciaObservableArray;
+    private Alertas alertas = new Alertas();
+    private Usuario usuarioActivo;
+    private ProgramaEducativo programaEducativoActivo;
+    private ReporteTutor reporteTutorNuevo= new ReporteTutor();
+    private SesionTutoria sesionTutoriaActiva = new SesionTutoria();
     final static Logger log = Logger.getLogger(CU02LlenarReporteDeTutoriaController.class);
 
-    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo) throws SQLException {
+    public void recibirParametros(Usuario usuario, ProgramaEducativo programaEducativo) {
         usuarioActivo = usuario;
         programaEducativoActivo = programaEducativo;
         establecerPeriodoFechasTutoria();
+        llenarTablaTutorados();
     }
 
     private void establecerPeriodoFechasTutoria() {
@@ -67,64 +78,111 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
             txtPeriodo.setText(periodo.toString());
             obtenerTutoriaActiva(periodo);
         } catch (SQLException exception) {
+            alertas.mostrarAlertaErrorConexionDB();
             log.fatal(exception);
         }
     }
 
-    private String obtenerFechaActual(){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String fechaActual = String.valueOf(dateTimeFormatter);
-        return fechaActual;
-    }
-
-    private void obtenerTutoriaActiva(Periodo periodo) {
-        SesionTutoria sesionTutoriaActiva = new SesionTutoria();
+    private void obtenerTutoriaActiva(Periodo periodo) throws SQLException{
         SesionTutoriaDAO sesionTutoriaDAO = new SesionTutoriaDAO();
         ArrayList<SesionTutoria> sesionesTutorias = sesionTutoriaDAO.consultarTutoriaPorPeriodo(periodo.getIdPeriodo());
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println(" ");
-        Date fechaActual = null;
+        LocalDate fecha = LocalDate.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String stringFecha = fecha.format(myFormatObj);
         try {
-            if (!sesionesTutorias.isEmpty()) {
+            Date fechaActual = dateFormat.parse(stringFecha);
+            if (!sesionesTutorias.isEmpty()){
                 for (SesionTutoria sesionTutoriaCiclo : sesionesTutorias) {
-                    Date fechaTutoriaInicio = dateFormat.parse(sesionTutoriaCiclo.getFechaTutoria());
-                    Date fechaTutoriaCierre = dateFormat.parse(sesionTutoriaCiclo.getFechaCierreReportes());
-                    if (fechaActual.equals(fechaTutoriaInicio)) {
+                    String fechaInicioTutoria = sesionTutoriaCiclo.getFechaTutoria();
+                    String fechaFinTutoria = sesionTutoriaCiclo.getFechaCierreReportes();
+                    Date fechaTutoriaInicio = dateFormat.parse(fechaInicioTutoria);
+                    Date fechaTutoriaCierre = dateFormat.parse(fechaFinTutoria);
+                    if (fechaActual.equals(fechaInicioTutoria)) {
                         sesionTutoriaActiva = sesionTutoriaCiclo;
+                        System.out.println(sesionTutoriaActiva.getIdSesionTutoria());
                     } else if (fechaActual.after(fechaTutoriaInicio) && fechaActual.before(fechaTutoriaCierre)) {
                         sesionTutoriaActiva = sesionTutoriaCiclo;
                     }
                 }
-            } else {
+            }else{
                 alertas.mostrarAlertaNoHayFechasDeTutoriaRegistradas();
             }
         } catch (ParseException exception) {
             log.fatal(exception);
         }
         mostrarFechasDeTutoria(sesionTutoriaActiva);
+        generaNuevoReporte();
     }
 
+    private void generaNuevoReporte() {
+        try {
+            reporteTutorNuevo.setIdTutoria(sesionTutoriaActiva.getIdSesionTutoria());
+            reporteTutorNuevo.setIdProgramaEducativo(2 /*programaEducativoActivo.getIdProgramaEducativo()*/);
+            reporteTutorNuevo.setCuentaUv(usuarioActivo.getCuentaUV());
+
+            ReporteTutorDAO reporteTutorDAO = new ReporteTutorDAO();
+            reporteTutorDAO.registrarReporte(reporteTutorNuevo);
+
+            int idReporteNuevo;
+            idReporteNuevo = reporteTutorDAO.obtenerIdReporte(reporteTutorNuevo);
+            reporteTutorNuevo.setIdsesion(idReporteNuevo);
+        } catch (SQLException exception){
+            log.fatal(exception);
+        }
+    }
 
     private void mostrarFechasDeTutoria(SesionTutoria sesionTutoria){
-            txtTutoria.setText(sesionTutoria.toString());
+        txtTutoria.setText(sesionTutoria.toString());
+        llenarTablaTutorados();
+    }
+
+    private void llenarTablaTutorados(){
+        colAsistencia.setCellValueFactory(new PropertyValueFactory<Asistencia, String>("checkBoxAsistencia"));
+        colNombre.setCellValueFactory(new PropertyValueFactory <Asistencia, String>("nombreCompleto"));
+        colRiesgo.setCellValueFactory(new PropertyValueFactory <Asistencia, String>("checkBoxRiesgo"));
+
+        asistenciaObservableArray = FXCollections.observableArrayList();
+        ArrayList<Asistencia> tutoradosAsistencia;
+        ReporteTutorDAO reporteTutor = new ReporteTutorDAO();
+        tutoradosAsistencia = reporteTutor.obtenerTutoradosParaAsistencia(usuarioActivo.getCuentaUV(), 2);
+        if(!tutoradosAsistencia.isEmpty()){
+            for(Asistencia asistencia : tutoradosAsistencia){
+                asistenciaObservableArray.add(asistencia);
+            }
+        }
+        tblTutorados.setItems(asistenciaObservableArray);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
 
-    @FXML
-    private void guardarReporte(ActionEvent event) {
     }
 
     @FXML
-    private void enviarReporte(ActionEvent event) {
+    private void enviarReporte(ActionEvent event) throws SQLException{
+        Asistencia asistencia = new Asistencia();
+        ReporteTutorDAO reporteTutorDao = new ReporteTutorDAO();
+        do {
+            asistencia = asistenciaObservableArray.get(0);
+            reporteTutorDao.registrarAsistencia(asistencia, reporteTutorNuevo.getIdsesion());
+            asistenciaObservableArray.remove(0);
+        } while(!asistenciaObservableArray.isEmpty());
+
+        alertas.mostrarAlertaRegistroReporteExitoso();
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void cerrarVentana(ActionEvent event) {
+        try {
+        ReporteTutorDAO reporteTutorDAO = new ReporteTutorDAO();
+        reporteTutorDAO.eliminarReporteIncompleto(reporteTutorNuevo.getIdsesion());
+        } catch (SQLException exception){
+            log.fatal(exception);
+        }
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
@@ -132,10 +190,22 @@ public class CU02LlenarReporteDeTutoriaController implements Initializable {
 
     @FXML
     private void registrarComentario(ActionEvent event) {
+        
     }
 
     @FXML
-    private void registrarProblematicas(ActionEvent event) {
+    private void registrarProblematicas(ActionEvent event) throws IOException, SQLException {
+        Stage stageMenuTutor = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Parent root = loader.load(getClass().getResource("/uv/gui/interfaces/CU03RegistrarProblematicaAcademicaGUI.fxml").openStream());
+        CU03RegistrarProblematicaAcademicaGUIController cu03RegistrarProblematicaAcademicaGUIController = (CU03RegistrarProblematicaAcademicaGUIController) loader.getController();
+        cu03RegistrarProblematicaAcademicaGUIController.recibirParametros(usuarioActivo, programaEducativoActivo, reporteTutorNuevo.getIdsesion());
+        Scene scene = new Scene(root);
+        stageMenuTutor.setScene(scene);
+        stageMenuTutor.setTitle("Registrar problematica academica");
+        stageMenuTutor.alwaysOnTopProperty();
+        stageMenuTutor.initModality(Modality.APPLICATION_MODAL);
+        stageMenuTutor.show();
     }
     
 }

@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import uv.fei.tutorias.domain.ProgramaEducativo;
@@ -65,21 +64,6 @@ public class MenuTutorGUIController implements Initializable {
     }
 
     @FXML
-    private void abrirRegistrarProblematica(ActionEvent event) throws IOException, SQLException{
-        Stage stageMenuTutor = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("/uv/gui/interfaces/CU03RegistrarProblematicaAcademicaGUI.fxml").openStream());
-        CU03RegistrarProblematicaAcademicaGUIController cu03RegistrarProblematicaAcademicaGUIController = (CU03RegistrarProblematicaAcademicaGUIController) loader.getController();
-        cu03RegistrarProblematicaAcademicaGUIController.recibirParametros(usuarioActivo, programaEducativo);
-        Scene scene = new Scene(root);
-        stageMenuTutor.setScene(scene);
-        stageMenuTutor.setTitle("Registrar problematica academica");
-        stageMenuTutor.alwaysOnTopProperty();
-        stageMenuTutor.initModality(Modality.APPLICATION_MODAL);
-        stageMenuTutor.show();
-    }
-
-    @FXML
     private void abrirRegistrarHorario(ActionEvent event) throws IOException, SQLException {
         Stage stageMenuTutor = new Stage();
         FXMLLoader loader = new FXMLLoader();
@@ -93,14 +77,14 @@ public class MenuTutorGUIController implements Initializable {
         stageMenuTutor.initModality(Modality.APPLICATION_MODAL);
         stageMenuTutor.show();
     }
-
+    
     @FXML
-    private void abrirConsultarHorario(ActionEvent event) throws IOException{
+    private void abrirConsultarHorario(ActionEvent event) throws IOException, SQLException{
         Stage stageMenuTutor = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("/uv/gui/interfaces/CU19ConsultarHorarioDeSesionDeTutoriaGUI.fxml").openStream());
         CU19ConsultarHorarioDeSesionDeTutoriaGUIController  cu19ConsultarHorarioDeSesionDeTutoriaGUIController = (CU19ConsultarHorarioDeSesionDeTutoriaGUIController) loader.getController();
-        cu19ConsultarHorarioDeSesionDeTutoriaGUIController.recibirParametros(usuarioActivo);
+        cu19ConsultarHorarioDeSesionDeTutoriaGUIController.recibirParametros(usuarioActivo, programaEducativo);
         Scene scene = new Scene(root);
         stageMenuTutor.setScene(scene);
         stageMenuTutor.setTitle("Consultar horarios");
@@ -167,6 +151,10 @@ public class MenuTutorGUIController implements Initializable {
         stageMenuTutor.alwaysOnTopProperty();
         stageMenuTutor.initModality(Modality.APPLICATION_MODAL);
         stageMenuTutor.show();
+    }
+
+    @FXML
+    private void abrirRegistrarProblematica(ActionEvent event) {
     }
     
 }

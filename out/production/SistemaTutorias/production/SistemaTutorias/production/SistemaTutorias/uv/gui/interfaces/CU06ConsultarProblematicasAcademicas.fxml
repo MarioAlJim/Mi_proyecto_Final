@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uv.gui.controladores.CU06ConsultarProblematicasAcademicasController">
+   <children>
+      <TableView fx:id="tblProblematicas" layoutX="56.0" layoutY="46.0" prefHeight="371.0" prefWidth="488.0">
+        <columns>
+          <TableColumn fx:id="colIdProblematica" prefWidth="75.0" text="idProblematica" visible="false" />
+            <TableColumn fx:id="colFecha" prefWidth="104.0" text="Fecha de tutoría" />
+          <TableColumn fx:id="colTitulo" prefWidth="246.0" text="Titulo" />
+            <TableColumn fx:id="colExperiencia" minWidth="0.0" prefWidth="137.0" text="Experiencia Educativa" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnCerrar" layoutX="495.0" layoutY="439.0" mnemonicParsing="false" onAction="#cerrarVentana" text="Cerrar" />
+      <TextField fx:id="txtAlumnos" layoutX="183.0" layoutY="67.0" prefHeight="25.0" prefWidth="55.0" visible="false" />
+      <TextField fx:id="txtDocente" layoutX="183.0" layoutY="108.0" visible="false" />
+      <TextField fx:id="txtExperiencia" layoutX="183.0" layoutY="149.0" visible="false" />
+      <TextField fx:id="txtTitulo" layoutX="56.0" layoutY="231.0" prefHeight="25.0" prefWidth="488.0" visible="false" />
+      <TextField fx:id="txtDescripcion" layoutX="54.0" layoutY="298.0" prefHeight="125.0" prefWidth="488.0" visible="false" />
+      <Label fx:id="lblAlumnos" layoutX="55.0" layoutY="71.0" text="Alumnos que reportan" visible="false" />
+      <Label fx:id="lblDocente" layoutX="54.0" layoutY="112.0" text="Docente" visible="false" />
+      <Label fx:id="lblExperiencia" layoutX="55.0" layoutY="153.0" text="Experiencia" visible="false" />
+      <Label fx:id="lblTitulo" layoutX="55.0" layoutY="208.0" text="Titulo" visible="false" />
+      <Label fx:id="lblProblematica" layoutX="180.0" layoutY="14.0" text="Problemática academica" visible="false">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescripcion" layoutX="56.0" layoutY="275.0" text="Descripción" visible="false" />
+      <Button fx:id="btnEliminar" layoutX="146.0" layoutY="451.0" mnemonicParsing="false" onAction="#abrirEliminar" text="Eliminar" visible="false" />
+      <Button fx:id="btnModificar" layoutX="52.0" layoutY="451.0" mnemonicParsing="false" onAction="#abrirModificar" text="Modificar" visible="false" />
+      <Button fx:id="btnCerrarinformacion" layoutX="490.0" layoutY="451.0" mnemonicParsing="false" onAction="#cerrarInformacion" text="Cerrar" visible="false" />
+      <Label fx:id="lblSugerencia" layoutX="56.0" layoutY="22.0" text="Seleccione una problemática de la tabla" />
+   </children>
+</AnchorPane>
